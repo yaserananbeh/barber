@@ -30,6 +30,11 @@ function OurNav() {
           </li>
           <li>
             <Link to="/" onClick={() => setToggleNavMenu(false)}>
+              Store
+            </Link>
+          </li>
+          <li>
+            <Link to="/" onClick={() => setToggleNavMenu(false)}>
               About Us
             </Link>
           </li>
