@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Mono", monospace;
+}
+:root {
+  font-size: 20px;
+  --black: #111111;
+  --white: #f8f8ff;
+  --teal: #00adb5;
+  --navyBlue: #242935;
+}
+body {
+  background-color: var(--navyBlue);
+}
