@@ -42,7 +42,7 @@ function OurNav() {
         <div className="accountWrapper">
           <ul>
             <li>
-              <Link to="/" onClick={() => setToggleNavMenu(false)}>
+              <Link to="/account" onClick={() => setToggleNavMenu(false)}>
                 Login/Register
               </Link>
             </li>
