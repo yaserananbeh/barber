@@ -1,10 +1,11 @@
 import React from 'react'
+import HeroImage from '../components/HeroImage'
 
 function LandingPage() {
     return (
-        <div>
-            
-        </div>
+        <>
+            <HeroImage/>
+        </>
     )
 }
 

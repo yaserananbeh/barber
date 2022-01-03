@@ -1,0 +1,62 @@
+.heroImageMainContainer {
+  min-width: 100%;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://images.fresha.com/locations/location-profile-images/242287/509411/dace0f1a-70c0-4b8c-9f33-94066371a851.jpg?class=fallback");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.heroImageMainContainer .actionArea {
+  background-color: #242935a6;
+  width: 100%;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: white;
+  padding-left: 15%;
+  font-size: 1.4rem;
+}
+.heroImageMainContainer .actionArea p {
+  max-width: 50%;
+}
+.heroImageMainContainer .actionArea h2 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  padding: 7px 0;
+}
+.heroImageMainContainer .actionArea button {
+  background-color: var(--black);
+  padding: 5px 15px;
+  border-radius: 15px;
+  border: none;
+  transition: 0.3s ease;
+  font-size: 0.9rem;
+  color: white;
+  box-shadow: 0px 0px 2px 2px gray;
+}
+.heroImageMainContainer .actionArea button:hover {
+  background-color: var(--navyBlue);
+  padding: 5px 15px;
+  border-radius: 10px;
+  border: none;
+}
+@media screen and (max-width: 1000px) {
+  .heroImageMainContainer .actionArea {
+    padding-left: 0;
+    text-align: center;
+  }
+  .heroImageMainContainer .actionArea p {
+    max-width: 100%;
+  }
+  .heroImageMainContainer .actionArea p,
+  .heroImageMainContainer .actionArea h2,
+  .heroImageMainContainer .actionArea a {
+    margin: 10px auto;
+  }
+}
