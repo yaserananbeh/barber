@@ -9,6 +9,7 @@ import {
 import LandingPage from './pages/LandingPage';
 import EmptyPage from './pages/EmptyPage';
 import OurNav from './components/OurNav';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<LandingPage/>}/>
         <Route path="*" element={<EmptyPage/>}/>
       </Routes>
+    <Footer/>
     </BrowserRouter>
     </div>
   )
