@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../style/CartBtn.scss";
-function CartBtn() {
+function CartBtn({cartCounter}) {
   return (
     <Link to="/" className="CartBtnContainer">
       <div>
         <img src="./assets/images/shopping-bag-icon.png" alt="cart btn" />
-        <span>0</span>
+        <span>{cartCounter}</span>
       </div>
     </Link>
   );
