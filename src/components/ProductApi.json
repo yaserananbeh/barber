@@ -1,0 +1,47 @@
+[
+  {
+    "productName": "THINNING SCISSORS",
+    "productImageLink": "http://html.kodesolution.live/html/health-beauty/haircare/v3.1/demo/images/products/1.jpg",
+    "productPrice": 90.0
+  },
+  {
+    "productName": "HAIR DRYER",
+    "productImageLink": "http://html.kodesolution.live/html/health-beauty/haircare/v3.1/demo/images/products/2.jpg",
+    "productPrice": 480.0
+  },
+  {
+    "productName": "HAIR BRUSH",
+    "productImageLink": "http://html.kodesolution.live/html/health-beauty/haircare/v3.1/demo/images/products/3.jpg",
+    "productPrice": 55.0
+  },
+  {
+    "productName": "SHAVING BRUSH",
+    "productImageLink": "http://html.kodesolution.live/html/health-beauty/haircare/v3.1/demo/images/products/4.jpg",
+    "productPrice": 185.0
+  },
+  {
+    "productName": "SHAVING RAZOR",
+    "productImageLink": "http://html.kodesolution.live/html/health-beauty/haircare/v3.1/demo/images/products/5.jpg",
+    "productPrice": 210.0
+  },
+  {
+    "productName": "HAIR OIL",
+    "productImageLink": "http://html.kodesolution.live/html/health-beauty/haircare/v3.1/demo/images/products/6.jpg",
+    "productPrice": 160.0
+  },
+  {
+    "productName": "HAIR POMADE",
+    "productImageLink": "http://html.kodesolution.live/html/health-beauty/haircare/v3.1/demo/images/products/7.jpg",
+    "productPrice": 110.0
+  },
+  {
+    "productName": "SHAVING GEL",
+    "productImageLink": "http://html.kodesolution.live/html/health-beauty/haircare/v3.1/demo/images/products/8.jpg",
+    "productPrice": 240.0
+  },
+  {
+    "productName": "BEARD OIL",
+    "productImageLink": "http://html.kodesolution.live/html/health-beauty/haircare/v3.1/demo/images/products/9.jpg",
+    "productPrice": 480.0
+  }
+]

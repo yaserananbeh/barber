@@ -1,0 +1,25 @@
+.shopProductsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 80%;
+
+  margin: 5rem auto;
+  text-align: center;
+}
+@media screen and (max-width: 1000px) {
+  .shopProductsContainer {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .shopProductsContainer {
+    width: 95%;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 550px) {
+    .shopProductsContainer {
+      width: 80%;
+      grid-template-columns: 1fr;
+    }
+  }

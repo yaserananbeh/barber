@@ -1,12 +1,14 @@
-import React from 'react'
-import ShopHeroImage from '../components/ShopHeroImage'
+import React from "react";
+import ProductsSection from "../components/ProductsSection";
+import ShopHeroImage from "../components/ShopHeroImage";
 
 function ShopPage() {
-    return (
-        <div>
-            <ShopHeroImage/>
-        </div>
-    )
+  return (
+    <div>
+      <ShopHeroImage />
+      <ProductsSection />
+    </div>
+  );
 }
 
-export default ShopPage
+export default ShopPage;
