@@ -1,4 +1,8 @@
-table.cartTableMainContainer{
+.cartTableMainContainer{
     background-color: red;
     width: 100%;
+    color: white;
+    table{
+        width: 100%;
+    }
 }
