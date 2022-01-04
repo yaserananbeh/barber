@@ -16,10 +16,10 @@ function App() {
         <OurNav />
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/account">
-            <Route path="login" element={<LoginPage />} />
-            <Route path="register" element={<RegisterPage />} />
-          </Route>
+          {/* <Route path="/account"> */}
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          {/* </Route> */}
           <Route path="*" element={<EmptyPage />} />
         </Routes>
         <Footer />

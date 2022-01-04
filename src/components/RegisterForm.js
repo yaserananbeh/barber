@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../style/RegisterForm.scss";
 function RegisterForm() {
   const [registerData, setRegisterData] = useState({
@@ -153,6 +154,8 @@ function RegisterForm() {
             )}
           </p>
         </div>
+        <Link to="/login">You have an account ?</Link>
+        
         <button>Register</button>
       </form>
     </section>
