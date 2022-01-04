@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../style/CartBtn.scss";
-function CartBtn({cartCounter}) {
+function CartBtn({ cartCounter }) {
   return (
-    <Link to="/" className="CartBtnContainer">
+    <Link to="/cart" className="CartBtnContainer">
       <div>
         <img src="./assets/images/shopping-bag-icon.png" alt="cart btn" />
         <span>{cartCounter}</span>

@@ -11,6 +11,7 @@ import RegisterPage from "./pages/RegisterPage";
 import FindBarberPage from "./pages/FindBarberPage";
 import ShopPage from "./pages/ShopPage";
 import CartBtn from "./components/CartBtn";
+import CartPage from "./pages/CartPage";
 
 export const CartCounterContext = createContext();
 function App() {
@@ -27,12 +28,11 @@ function App() {
           <CartBtn cartCounter={cartCounter} />
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            {/* <Route path="/account"> */}
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
-            {/* </Route> */}
             <Route path="/findBarber" element={<FindBarberPage />} />
             <Route path="/shop" element={<ShopPage />} />
+            <Route path="/cart" element={<CartPage />} />
             <Route path="*" element={<EmptyPage />} />
           </Routes>
           <Footer />
