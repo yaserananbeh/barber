@@ -1,0 +1,22 @@
+.shopHeroImageContainer {
+  min-height: 50vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h2 {
+    background-color: #24293588;
+    color: var(--white);
+    width: 100%;
+    text-align: center;
+    min-height: 50vh;
+    font-size: 3rem;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

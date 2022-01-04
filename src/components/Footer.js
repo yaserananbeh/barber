@@ -53,7 +53,7 @@ function Footer() {
               <i className="fab fa-instagram-square fa-3x"></i>
             </a>
             <a
-              href="https://github.com/Project5ReactHooks/Parrot"
+              href="https://github.com/yaserananbeh/barber"
               target="_blank"
               rel="noreferrer"
             >

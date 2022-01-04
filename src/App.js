@@ -8,6 +8,8 @@ import OurNav from "./components/OurNav";
 import Footer from "./components/Footer";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import FindBarberPage from "./pages/FindBarberPage";
+import ShopPage from "./pages/ShopPage";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           {/* </Route> */}
+          <Route path="/findBarber" element={<FindBarberPage />} />
+          <Route path="/shop" element={<ShopPage/>} />
           <Route path="*" element={<EmptyPage />} />
         </Routes>
         <Footer />

@@ -24,13 +24,13 @@ function OurNav() {
             </Link>
           </li>
           <li>
-            <Link to="/" onClick={() => setToggleNavMenu(false)}>
+            <Link to="/findBarber" onClick={() => setToggleNavMenu(false)}>
               Barbers
             </Link>
           </li>
           <li>
-            <Link to="/" onClick={() => setToggleNavMenu(false)}>
-              Store
+            <Link to="/shop" onClick={() => setToggleNavMenu(false)}>
+              Shop
             </Link>
           </li>
           <li>
