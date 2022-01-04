@@ -10,12 +10,14 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import FindBarberPage from "./pages/FindBarberPage";
 import ShopPage from "./pages/ShopPage";
+import CartBtn from "./components/CartBtn";
 
 function App() {
   return (
     <div>
       <BrowserRouter className="appMainContainer">
         <OurNav />
+        <CartBtn />
         <Routes>
           <Route path="/" element={<LandingPage />} />
           {/* <Route path="/account"> */}
@@ -23,7 +25,7 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           {/* </Route> */}
           <Route path="/findBarber" element={<FindBarberPage />} />
-          <Route path="/shop" element={<ShopPage/>} />
+          <Route path="/shop" element={<ShopPage />} />
           <Route path="*" element={<EmptyPage />} />
         </Routes>
         <Footer />
