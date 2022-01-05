@@ -7,21 +7,39 @@ function ShopCartTable() {
   const cartCounterSetter = useContext(CartCounterContext);
   const [quantityChange, setQuantityChange] = useState(0);
   const [cartItems, setCartItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [couponInput, setCouponInput] = useState("");
   useEffect(() => {
+    setStorageData();
+    calculateTotal();
+  }, [quantityChange]);
+  const setStorageData = () => {
     localStorage.getItem("cartItems")
       ? setCartItems(JSON.parse(localStorage.getItem("cartItems")))
       : setCartItems([]);
-  }, [quantityChange]);
+  };
+  const calculateTotal = () => {
+    if (localStorage.getItem("cartItems")) {
+      let sum = 0;
+      JSON.parse(localStorage.getItem("cartItems")).forEach((data) => {
+        sum += data.productPrice * data.quantity;
+      });
+      setTotalPrice(sum);
+      return sum;
+    }
+  };
   const handleDeleteItem = (acceptedIndex) => {
-    let filteredArr = cartItems.filter((data, index) => index != acceptedIndex);
-    console.log(filteredArr);
+    let filteredArr = cartItems.filter(
+      (data, index) => index !== acceptedIndex
+    );
     setCartItems(filteredArr);
     localStorage.setItem("cartItems", JSON.stringify(filteredArr));
     cartCounterSetter(JSON.parse(localStorage.getItem("cartItems")).length);
+    calculateTotal();
   };
   const handleIncrease = (acceptedIndex) => {
     cartItems.forEach((data, index) => {
-      if (index == acceptedIndex) {
+      if (index === acceptedIndex) {
         data.quantity += 1;
         setCartItems(cartItems);
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -29,10 +47,11 @@ function ShopCartTable() {
         setQuantityChange(quantityChange + 1);
       }
     });
+    calculateTotal();
   };
   const handleDecrease = (acceptedIndex) => {
     cartItems.forEach((data, index) => {
-      if (index == acceptedIndex) {
+      if (index === acceptedIndex) {
         data.quantity -= 1;
         setCartItems(cartItems);
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
@@ -40,8 +59,20 @@ function ShopCartTable() {
         setQuantityChange(quantityChange + 1);
       }
     });
+    calculateTotal();
   };
-  
+  const handleSubmitCoupon = (e) => {
+    e.preventDefault();
+    if (couponInput === "co123") {
+      if (calculateTotal() === totalPrice) {
+        setTotalPrice(totalPrice - totalPrice * 0.15);
+      } else {
+        setTotalPrice(totalPrice);
+      }
+    } else {
+      setTotalPrice(calculateTotal());
+    }
+  };
   return (
     <>
       {cartItems.length ? (
@@ -86,12 +117,27 @@ function ShopCartTable() {
             </tbody>
           </table>
           <div className="totalContainer">
-            {/* <label htmlFor="totalPrice">Total Price</label>
-            <p id="totalPrice">{calculateTotalPrice}</p> */}
+            <label htmlFor="totalPrice">Total Price</label>
+            <p id="totalPrice">{totalPrice}$</p>
           </div>
           <Link to="/checkout">
             <button>Checkout</button>
           </Link>
+          <Link to="/shop">
+            <button>Add Items</button>
+          </Link>
+          <div className="couponContainer">
+            <form onSubmit={handleSubmitCoupon}>
+              <label htmlFor="couponInput">Coupon</label>
+              <input
+                type="text"
+                id="couponInput"
+                onChange={(e) => setCouponInput(e.target.value)}
+              />
+              <button>Apply</button>
+              <p className="couponResponse">test</p>
+            </form>
+          </div>
         </div>
       ) : (
         <>
