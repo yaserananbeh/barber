@@ -24,8 +24,8 @@ function OurNav() {
             </Link>
           </li>
           <li>
-            <Link to="/findBarber" onClick={() => setToggleNavMenu(false)}>
-              Barbers
+            <Link to="/services" onClick={() => setToggleNavMenu(false)}>
+              Services
             </Link>
           </li>
           <li>

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "barberImg": "https://miro.medium.com/max/1000/1*keHC90qDfxJFlvCQBzxzhw.jpeg",
+    "barberName": "GREG ZORIAN",
+    "barberExp": 20,
+    "barberDes": "Master Barber Greg Zorian is a third-generation barber over 20 years of experience.",
+    "barberPrice": 50
+  },
+  {
+    "id": 2,
+    "barberImg": "https://miro.medium.com/max/625/1*NI7zGGZD4Ki2LhSwM0xohA.jpeg",
+    "barberName": "MC Barber",
+    "barberExp": 8,
+    "barberDes": " In 2003 he successfully opened up his first Barber shop “MC Barber” which lead him to become a very successful barber.",
+    "barberPrice": 60
+  },
+  {
+    "id": 3,
+    "barberImg": "https://miro.medium.com/max/625/1*UgOa0hXsJ2ucYkzwOuYg2w.jpeg",
+    "barberName": "Kieron The Barber",
+    "barberExp": 16,
+    "barberDes": "For the past 16 years, he’s honed his barbering skills and is currently a qualified barbering assessor and barbershop owner",
+    "barberPrice": 50
+  }
+]
