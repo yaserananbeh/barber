@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import barberApiData from "./BarbersApi.json";
 function ServicesCardContainer() {
   return (
-    <div>
+    <div style={{ color: "white" }}>
       {barberApiData.map((data, index) => {
         return (
           <div key={index}>
@@ -40,7 +40,10 @@ export function BarberCardContainer({ index, data }) {
         </button>
         {bookFormToggle && (
           <>
-            <BookFormContainer setBookFormToggle={setBookFormToggle} />
+            <BookFormContainer
+              setBookFormToggle={setBookFormToggle}
+              data={data}
+            />
           </>
         )}
       </div>
@@ -48,32 +51,120 @@ export function BarberCardContainer({ index, data }) {
   );
 }
 
-export function BookFormContainer({ setBookFormToggle }) {
+export function BookFormContainer({ setBookFormToggle, data }) {
+  // const [appointments, setAppointments] = useState([]);
+  const [error, setError] = useState(false);
   const handleBookFormSubmit = (e) => {
     e.preventDefault();
     // console.log(e.target.date.value);
     // console.log(e.target.time.value);
-    // let today = new Date();
-    // let date =
-    //   today.getFullYear() +
-    //   "-" +
-    //   (today.getMonth() + 1) +
-    //   "-" +
-    //   today.getDate();
-    // console.log(typeof String(today.getMonth() + 1));
-    setBookFormToggle(false);
+    // console.log(data.barberName);
+    // console.log("==================");
+
+    if (localStorage.getItem(data.barberName + "dates")) {
+      let prevArrOfDates = JSON.parse(
+        localStorage.getItem(data.barberName + "dates")
+      );
+      let existDate = false;
+      let indexExistDate = null;
+      prevArrOfDates.forEach((item, index) => {
+        if (item.date === e.target.date.value) {
+          existDate = true;
+          indexExistDate = index;
+          return;
+        }
+      });
+      if (existDate) {
+        let existTime = false;
+        prevArrOfDates[indexExistDate].times.forEach((item, index) => {
+          if (item.time === e.target.time.value) {
+            existTime = true;
+            return;
+          }
+        });
+        if (existTime) {
+          //true
+          alert("choose another time");
+        } else {
+          let tempArr = prevArrOfDates;
+          tempArr[indexExistDate].times.push({
+            time: e.target.time.value,
+            userEmail: localStorage.getItem("loggedInUser")
+              ? JSON.parse(localStorage.getItem("loggedInUser")).email
+              : "guest@email.com",
+          });
+          localStorage.setItem(
+            data.barberName + "dates",
+            JSON.stringify(tempArr)
+          );
+          alert("added");
+        }
+      } else {
+        localStorage.setItem(
+          data.barberName + "dates",
+          JSON.stringify([
+            ...prevArrOfDates,
+            {
+              date: e.target.date.value,
+              times: [
+                {
+                  time: e.target.time.value,
+                  userEmail: localStorage.getItem("loggedInUser")
+                    ? JSON.parse(localStorage.getItem("loggedInUser")).email
+                    : "guest@email.com",
+                },
+              ],
+            },
+          ])
+        );
+        alert("added");
+      }
+    } else {
+      localStorage.setItem(
+        data.barberName + "dates",
+        JSON.stringify([
+          {
+            date: e.target.date.value,
+            times: [
+              {
+                time: e.target.time.value,
+                userEmail: localStorage.getItem("loggedInUser")
+                  ? JSON.parse(localStorage.getItem("loggedInUser")).email
+                  : "guest@email.com",
+              },
+            ],
+          },
+        ])
+      );
+      alert("added");
+    }
+
+    // setBookFormToggle(false);
   };
   let today = new Date();
-
-  console.log(typeof String(today.getMonth() + 1));
+  let date =
+    today.getFullYear() +
+    "-" +
+    ("0" + (today.getMonth() + 1)).slice(-2) +
+    "-" +
+    ("0" + today.getDate()).slice(-2);
 
   return (
     <div>
       <form onSubmit={handleBookFormSubmit}>
         <label htmlFor="date">date</label>
-        <input type="date" min={"2022-01-04"} name="date" required />
-        <label htmlFor="time">Time</label>
-        <input type="time" name="time" required />
+        <input type="date" min={date} name="date" required />
+        <label htmlFor="time">Hour</label>
+        <input
+          type="number"
+          step="1"
+          min="1"
+          max="11"
+          name="time"
+          required
+        />{" "}
+        <p>o'Clock</p>
+        {error && <p>error</p>}
         <button>Book</button>
       </form>
     </div>
