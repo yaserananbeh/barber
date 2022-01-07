@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "../style/OurNav.scss";
+import { IsAuthContext } from "../App";
 function OurNav() {
   const [toggleNavMenu, setToggleNavMenu] = useState(false);
+  const { isAuth } = useContext(IsAuthContext);
+  console.log("rerenderNav");
   return (
     <nav className="headerNavContainer">
       <div className="logoContainer">
@@ -42,9 +45,15 @@ function OurNav() {
         <div className="accountWrapper">
           <ul>
             <li>
-              <Link to="/login" onClick={() => setToggleNavMenu(false)}>
-                Login/Register
-              </Link>
+              {isAuth.email.length > 5 ? (
+                <Link to="/account" onClick={() => setToggleNavMenu(false)}>
+                  Account
+                </Link>
+              ) : (
+                <Link to="/login" onClick={() => setToggleNavMenu(false)}>
+                  Login/Register
+                </Link>
+              )}
             </li>
           </ul>
         </div>

@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { IsAuthContext } from "../App";
 
 function LoginForm() {
+  const { setIsAuth } = useContext(IsAuthContext);
   const [error, setError] = useState("empty");
   const [loginData, setLoginData] = useState({
     email: "",
@@ -40,6 +42,7 @@ function LoginForm() {
       if (exist) {
         setError("empty");
         localStorage.setItem("loggedInUser", JSON.stringify(loggedInUserObj));
+        setIsAuth(loggedInUserObj);
       } else {
         setError("The email or password incorrect ");
       }
@@ -98,7 +101,7 @@ function LoginForm() {
               )}
             </p>
           </div>
-        <Link to="/register">You don't have an account ?</Link>
+          <Link to="/register">You don't have an account ?</Link>
           <button>Login</button>
         </form>
       </section>

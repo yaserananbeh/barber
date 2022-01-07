@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "../style/RegisterForm.scss";
+import { IsAuthContext } from "../App";
+
 function RegisterForm() {
+  const { setIsAuth } = useContext(IsAuthContext);
+
   const [registerData, setRegisterData] = useState({
     username: "",
     email: "",
@@ -55,6 +59,7 @@ function RegisterForm() {
           JSON.stringify([...previousData, registerData])
         );
         localStorage.setItem("loggedInUser", JSON.stringify(registerData));
+        setIsAuth(registerData);
       } else {
         setError("this email exist before please login");
       }
@@ -155,7 +160,7 @@ function RegisterForm() {
           </p>
         </div>
         <Link to="/login">You have an account ?</Link>
-        
+
         <button>Register</button>
       </form>
     </section>

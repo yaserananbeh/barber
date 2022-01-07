@@ -16,31 +16,40 @@ import CheckoutPage from "./pages/CheckoutPage";
 import ServicePage from "./pages/ServicePage";
 
 export const CartCounterContext = createContext();
+export const IsAuthContext = createContext();
 function App() {
   let [cartCounter, setCartCounter] = useState(
     localStorage.getItem("cartItems")
       ? JSON.parse(localStorage.getItem("cartItems")).length
       : 0
   );
+  const [isAuth, setIsAuth] = useState(
+    localStorage.getItem("loggedInUser")
+      ? JSON.parse(localStorage.getItem("loggedInUser"))
+      : { email: "guest" }
+  );
   return (
     <div>
       <BrowserRouter className="appMainContainer">
-        <CartCounterContext.Provider value={setCartCounter}>
-          <OurNav />
-          <CartBtn cartCounter={cartCounter} />
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route path="/findBarber" element={<FindBarberPage />} />
-            <Route path="/shop" element={<ShopPage />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
-            <Route path="/services" element={<ServicePage />} />
-            <Route path="*" element={<EmptyPage />} />
-          </Routes>
-          <Footer />
-        </CartCounterContext.Provider>
+        <IsAuthContext.Provider value={{ isAuth, setIsAuth }}>
+          <CartCounterContext.Provider value={setCartCounter}>
+            <OurNav isAuth={isAuth} />
+            <CartBtn cartCounter={cartCounter} />
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/findBarber" element={<FindBarberPage />} />
+              <Route path="/shop" element={<ShopPage />} />
+              <Route path="/cart" element={<CartPage />} />
+              <Route path="/checkout" element={<CheckoutPage />} />
+              <Route path="/services" element={<ServicePage />} />
+              <Route path="/account" />
+              <Route path="*" element={<EmptyPage />} />
+            </Routes>
+            <Footer />
+          </CartCounterContext.Provider>
+        </IsAuthContext.Provider>
       </BrowserRouter>
     </div>
   );
