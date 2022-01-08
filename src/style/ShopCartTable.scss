@@ -1,8 +1,95 @@
-.cartTableMainContainer{
-    background-color: red;
-    width: 100%;
-    color: white;
-    table{
-        width: 100%;
+.cartTableMainContainer {
+  width: 100%;
+  color: white;
+  table.cartTable {
+    border: 1px solid var(--teal);
+    text-align: center;
+    width: 60%;
+    margin: auto;
+    thead {
+      border: 1px solid var(--teal);
+
+      tr {
+        border: 1px solid var(--teal);
+
+        th {
+          border: 1px solid var(--teal);
+
+          padding: 0.4rem;
+          font-weight: 900;
+        }
+      }
     }
+    tbody {
+      border: 1px solid var(--teal);
+      font-size: 0.8rem;
+      & tr:nth-child(odd) {
+        background-color: gray;
+      }
+      tr {
+        border: 1px solid var(--teal);
+        .quantityTd {
+          * {
+            padding: 0 0.3rem;
+          }
+          button {
+            border: 1px solid var(--white);
+          }
+        }
+        td {
+          border: 1px solid var(--teal);
+
+          padding: 0.4rem;
+          img {
+            width: 50px;
+          }
+          button {
+            border: none;
+            color: white;
+            background-color: unset;
+          }
+        }
+      }
+    }
+    tfoot {
+      font-size: 0.9rem;
+      p {
+        margin: 0;
+      }
+      tr {
+        td {
+          border: 1px solid var(--teal);
+          padding: 0.3rem;
+          font-weight: 700;
+        }
+        .couponContainer {
+          text-align: left;
+        }
+      }
+      button {
+        background-color: var(--black);
+        padding: 2px 15px;
+        border-radius: 5px;
+        border: none;
+        transition: 0.3s ease;
+        font-size: 0.9rem;
+        color: white;
+        position: relative;
+        box-shadow: 0px 0px 2px 2px gray;
+      }
+
+      button:hover {
+        background-color: var(--navyBlue);
+        border: none;
+      }
+    }
+  }
+  .linksContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    width: 60%;
+    margin: auto;
+  }
 }
