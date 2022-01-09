@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../style/RegisterForm.scss";
 import { IsAuthContext } from "../App";
 
 function RegisterForm() {
   const { setIsAuth } = useContext(IsAuthContext);
-
+  const navigate = useNavigate();
   const [registerData, setRegisterData] = useState({
     username: "",
     email: "",
@@ -26,16 +26,16 @@ function RegisterForm() {
       ? (registerLocker += 1)
       : errorFieldsArr.push("username");
     registerData.email.includes(".") &&
-    registerData.email.length >= 6 &&
-    registerData.email.includes("@") &&
-    registerData.email[registerData.email.length - 1] !== "."
+      registerData.email.length >= 6 &&
+      registerData.email.includes("@") &&
+      registerData.email[registerData.email.length - 1] !== "."
       ? (registerLocker += 1)
       : errorFieldsArr.push("email");
     registerData.password1.length >= 6
       ? (registerLocker += 1)
       : errorFieldsArr.push("password1");
     registerData.password1 === registerData.password2 &&
-    registerData.password1.length >= 6
+      registerData.password1.length >= 6
       ? (registerLocker += 1)
       : errorFieldsArr.push("password2");
 
@@ -60,6 +60,7 @@ function RegisterForm() {
         );
         localStorage.setItem("loggedInUser", JSON.stringify(registerData));
         setIsAuth(registerData);
+        navigate("/")
       } else {
         setError("this email exist before please login");
       }
@@ -70,7 +71,8 @@ function RegisterForm() {
   return (
     <section className="registerFormSection">
       <form onSubmit={handleRegisterSubmit}>
-        {error !== "empty" && <p>{error}</p>}
+        <h2>Register</h2>
+        {error !== "empty" && <p className="errorMessage">{error}</p>}
         <div className="formControl">
           <label htmlFor="username">Username </label>
           <input
@@ -107,9 +109,9 @@ function RegisterForm() {
           <p>
             Should be a valid email{" "}
             {registerData.email.includes(".") &&
-            registerData.email.length >= 6 &&
-            registerData.email.includes("@") &&
-            registerData.email[registerData.email.length - 1] !== "." ? (
+              registerData.email.length >= 6 &&
+              registerData.email.includes("@") &&
+              registerData.email[registerData.email.length - 1] !== "." ? (
               <i className="far fa-check-circle"></i>
             ) : (
               ""
@@ -152,7 +154,7 @@ function RegisterForm() {
           <p>
             Should match the first password{" "}
             {registerData.password1 === registerData.password2 &&
-            registerData.password1.length >= 6 ? (
+              registerData.password1.length >= 6 ? (
               <i className="far fa-check-circle"></i>
             ) : (
               ""

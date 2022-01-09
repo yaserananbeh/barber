@@ -1,9 +1,11 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { IsAuthContext } from "../App";
+import "../style/LoginForm.scss";
 
 function LoginForm() {
   const { setIsAuth } = useContext(IsAuthContext);
+  const navigate = useNavigate();
   const [error, setError] = useState("empty");
   const [loginData, setLoginData] = useState({
     email: "",
@@ -43,6 +45,7 @@ function LoginForm() {
         setError("empty");
         localStorage.setItem("loggedInUser", JSON.stringify(loggedInUserObj));
         setIsAuth(loggedInUserObj);
+        navigate("/");
       } else {
         setError("The email or password incorrect ");
       }
@@ -52,9 +55,10 @@ function LoginForm() {
   };
   return (
     <div>
-      <section className="registerFormSection">
+      <section className="loginFormSection">
         <form onSubmit={handleLoginSubmit}>
-          {error !== "empty" && <p>{error}</p>}
+          <h2>Login</h2>
+          {error !== "empty" && <p className="errorMessage">{error}</p>}
 
           <div className="formControl">
             <label htmlFor="email">Email </label>
