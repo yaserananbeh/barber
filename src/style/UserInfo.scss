@@ -1,0 +1,57 @@
+.userInfoMainContainer {
+  background-color: var(--black);
+  width: 80%;
+  margin: 2rem auto;
+  min-height: 60vh;
+  padding: 1rem;
+  border-radius: 1rem;
+  & > div {
+    background-color: var(--navyBlue);
+    color: var(--white);
+    border-radius: 0.5rem;
+    border: 1px solid black;
+    min-height: 60vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    & > div {
+      text-align: center;
+      padding: 3rem;
+
+      img {
+        padding: 1rem;
+        width: 80%;
+      }
+      input {
+        width: 100%;
+        border-radius: 0.5rem;
+        border-width: 1px;
+        font-size: 1.2rem;
+        padding: 0.2rem;
+        text-align: center;
+        background-color: white;
+      }
+      label {
+        margin: 0.2rem;
+      }
+    }
+    .logoutBtnContainer {
+      text-align: right;
+      padding: 1rem;
+      button {
+        background-color: var(--black);
+        padding: 2px 15px;
+        border-radius: 5px;
+        border: none;
+        transition: 0.3s ease;
+        font-size: 0.9rem;
+        color: white;
+        position: relative;
+        box-shadow: 0px 0px 2px 2px gray;
+      }
+      button:hover {
+        background-color: var(--navyBlue);
+        border: none;
+      }
+    }
+  }
+}

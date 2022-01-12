@@ -47,7 +47,7 @@ function OurNav() {
             <li>
               {isAuth.email.length > 5 ? (
                 <Link to="/account" onClick={() => setToggleNavMenu(false)}>
-                  Account
+                  My Account
                 </Link>
               ) : (
                 <Link to="/login" onClick={() => setToggleNavMenu(false)}>

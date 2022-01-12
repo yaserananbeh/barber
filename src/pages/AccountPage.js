@@ -1,10 +1,10 @@
 import React from "react";
-import LogoutBtn from "../components/LogoutBtn";
+import UserInfo from "../components/UserInfo";
 
 function AccountPage() {
   return (
     <div>
-      <LogoutBtn />
+      <UserInfo />
     </div>
   );
 }

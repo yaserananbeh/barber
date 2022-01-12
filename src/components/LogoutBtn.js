@@ -11,13 +11,14 @@ function LogoutBtn() {
 
   const handleLogoutClick = () => {
     setIsAuth({ email: "guest" });
+    localStorage.removeItem("loggedInUser");
     localStorage.removeItem("cartItems");
     cartCounterSetter(0);
 
     navigate("/");
   };
   return (
-    <div>
+    <div className="logoutBtnContainer">
       <button onClick={handleLogoutClick}>logout</button>
     </div>
   );
