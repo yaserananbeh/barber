@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import barberApiData from "./BarbersApi.json";
+import swal from "sweetalert";
+
 function ServicesCardContainer() {
   return (
     <div style={{ color: "white" }}>
@@ -52,14 +54,9 @@ export function BarberCardContainer({ index, data }) {
 }
 
 export function BookFormContainer({ setBookFormToggle, data }) {
-  // const [appointments, setAppointments] = useState([]);
   const [error, setError] = useState(false);
   const handleBookFormSubmit = (e) => {
     e.preventDefault();
-    // console.log(e.target.date.value);
-    // console.log(e.target.time.value);
-    // console.log(data.barberName);
-    // console.log("==================");
 
     if (localStorage.getItem(data.barberName + "dates")) {
       let prevArrOfDates = JSON.parse(
@@ -83,8 +80,14 @@ export function BookFormContainer({ setBookFormToggle, data }) {
           }
         });
         if (existTime) {
-          //true
-          alert("choose another time");
+          swal(
+            "Can't Book",
+            "The Barber Not Available, Try Another Time",
+            "error",
+            {
+              button: "Close",
+            }
+          );
         } else {
           let tempArr = prevArrOfDates;
           tempArr[indexExistDate].times.push({
@@ -97,7 +100,14 @@ export function BookFormContainer({ setBookFormToggle, data }) {
             data.barberName + "dates",
             JSON.stringify(tempArr)
           );
-          alert("added");
+          swal(
+            "You have booked successfully",
+            "Thank you for using our services",
+            "success",
+            {
+              button: "Close",
+            }
+          );
         }
       } else {
         localStorage.setItem(
@@ -117,7 +127,14 @@ export function BookFormContainer({ setBookFormToggle, data }) {
             },
           ])
         );
-        alert("added");
+        swal(
+          "You have booked successfully",
+          "Thank you for using our services",
+          "success",
+          {
+            button: "Close",
+          }
+        );
       }
     } else {
       localStorage.setItem(
@@ -136,10 +153,15 @@ export function BookFormContainer({ setBookFormToggle, data }) {
           },
         ])
       );
-      alert("added");
+      swal(
+        "You have booked successfully",
+        "Thank you for using our services",
+        "success",
+        {
+          button: "Close",
+        }
+      );
     }
-
-    // setBookFormToggle(false);
   };
   let today = new Date();
   let date =
