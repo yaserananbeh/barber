@@ -14,6 +14,11 @@ function RegisterForm() {
   });
   const [usersArr, setUsersArr] = useState([]);
   const [error, setError] = useState("empty");
+  let [cartItems] = useState(
+    localStorage.getItem("cartItems")
+      ? JSON.parse(localStorage.getItem("cartItems")).length
+      : 0
+  );
 
   useEffect(() => {
     console.log(usersArr);
@@ -26,16 +31,16 @@ function RegisterForm() {
       ? (registerLocker += 1)
       : errorFieldsArr.push("username");
     registerData.email.includes(".") &&
-      registerData.email.length >= 6 &&
-      registerData.email.includes("@") &&
-      registerData.email[registerData.email.length - 1] !== "."
+    registerData.email.length >= 6 &&
+    registerData.email.includes("@") &&
+    registerData.email[registerData.email.length - 1] !== "."
       ? (registerLocker += 1)
       : errorFieldsArr.push("email");
     registerData.password1.length >= 6
       ? (registerLocker += 1)
       : errorFieldsArr.push("password1");
     registerData.password1 === registerData.password2 &&
-      registerData.password1.length >= 6
+    registerData.password1.length >= 6
       ? (registerLocker += 1)
       : errorFieldsArr.push("password2");
 
@@ -60,7 +65,11 @@ function RegisterForm() {
         );
         localStorage.setItem("loggedInUser", JSON.stringify(registerData));
         setIsAuth(registerData);
-        navigate("/")
+        if (cartItems) {
+          navigate("/checkout");
+        } else {
+          navigate("/");
+        }
       } else {
         setError("this email exist before please login");
       }
@@ -109,9 +118,9 @@ function RegisterForm() {
           <p>
             Should be a valid email{" "}
             {registerData.email.includes(".") &&
-              registerData.email.length >= 6 &&
-              registerData.email.includes("@") &&
-              registerData.email[registerData.email.length - 1] !== "." ? (
+            registerData.email.length >= 6 &&
+            registerData.email.includes("@") &&
+            registerData.email[registerData.email.length - 1] !== "." ? (
               <i className="far fa-check-circle"></i>
             ) : (
               ""
@@ -154,7 +163,7 @@ function RegisterForm() {
           <p>
             Should match the first password{" "}
             {registerData.password1 === registerData.password2 &&
-              registerData.password1.length >= 6 ? (
+            registerData.password1.length >= 6 ? (
               <i className="far fa-check-circle"></i>
             ) : (
               ""

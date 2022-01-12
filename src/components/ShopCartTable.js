@@ -153,12 +153,12 @@ function ShopCartTable() {
           </div>
         </div>
       ) : (
-        <>
+        <div className="emptyCartMainContainer">
           <h2>Your Cart Is Empty</h2>
           <Link to="/shop">
             <button>Add Items</button>
           </Link>
-        </>
+        </div>
       )}
     </>
   );

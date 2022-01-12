@@ -11,6 +11,11 @@ function LoginForm() {
     email: "",
     password1: "",
   });
+  let [cartItems] = useState(
+    localStorage.getItem("cartItems")
+      ? JSON.parse(localStorage.getItem("cartItems")).length
+      : 0
+  );
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     let errorFieldsArr = [];
@@ -45,7 +50,11 @@ function LoginForm() {
         setError("empty");
         localStorage.setItem("loggedInUser", JSON.stringify(loggedInUserObj));
         setIsAuth(loggedInUserObj);
-        navigate("/");
+        if (cartItems) {
+          navigate("/checkout");
+        } else {
+          navigate("/");
+        }
       } else {
         setError("The email or password incorrect ");
       }
