@@ -2,12 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import "../style/ProductCard.scss";
 import { CartCounterContext } from "../App";
 
-function ProductCard({ data, index, rerender, setRerender }) {
+function ProductCard({ data, index, rerender, setRerender, section = "" }) {
   const cartCounterSetter = useContext(CartCounterContext);
   const [existInCart, setExistInCart] = useState(false);
   useEffect(() => {
     checkIfExist();
-  }, [existInCart,rerender]);
+  }, [existInCart, rerender]);
   const checkIfExist = () => {
     if (localStorage.getItem("cartItems")) {
       JSON.parse(localStorage.getItem("cartItems")).forEach((element) => {
@@ -43,10 +43,17 @@ function ProductCard({ data, index, rerender, setRerender }) {
       </div>
       <div className="infoArea">
         <h3>{data.productName}</h3>
-        <h4>{data.productPrice}$</h4>
-        <button disabled={existInCart} onClick={() => handleAddToCartBtn(data)}>
-          {!existInCart ? "Add To Cart" : "Added To Cart"}
-        </button>
+        {section !== "ourTeam" && (
+          <>
+            <h4>{data.productPrice}$</h4>
+            <button
+              disabled={existInCart}
+              onClick={() => handleAddToCartBtn(data)}
+            >
+              {!existInCart ? "Add To Cart" : "Added To Cart"}
+            </button>
+          </>
+        )}
       </div>
     </div>
   );
