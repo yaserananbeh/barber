@@ -5,7 +5,7 @@ import ShopHeroImage from "../components/ShopHeroImage";
 function ShopPage() {
   return (
     <div>
-      <ShopHeroImage />
+      <ShopHeroImage page="shop"/>
       <ProductsSection />
     </div>
   );

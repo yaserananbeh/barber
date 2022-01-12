@@ -71,6 +71,8 @@
         }
       }
       button {
+        margin: 0 0.5rem;
+
         background-color: var(--black);
         padding: 2px 15px;
         border-radius: 5px;
@@ -96,6 +98,7 @@
     width: 60%;
     margin: 0 auto 3rem;
     button {
+      margin: 0 0.5rem;
       background-color: var(--black);
       padding: 2px 15px;
       border-radius: 5px;

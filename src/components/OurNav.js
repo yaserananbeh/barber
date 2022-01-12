@@ -37,7 +37,7 @@ function OurNav() {
             </Link>
           </li>
           <li>
-            <Link to="/" onClick={() => setToggleNavMenu(false)}>
+            <Link to="/aboutus" onClick={() => setToggleNavMenu(false)}>
               About Us
             </Link>
           </li>

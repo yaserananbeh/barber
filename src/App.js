@@ -15,6 +15,7 @@ import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import ServicePage from "./pages/ServicePage";
 import AccountPage from "./pages/AccountPage";
+import AboutUsPage from "./pages/AboutUsPage";
 
 export const CartCounterContext = createContext();
 export const IsAuthContext = createContext();
@@ -46,6 +47,7 @@ function App() {
               <Route path="/checkout" element={<CheckoutPage />} />
               <Route path="/services" element={<ServicePage />} />
               <Route path="/account" element={<AccountPage />} />
+              <Route path="/aboutus" element={<AboutUsPage />} />
               <Route path="*" element={<EmptyPage />} />
             </Routes>
             <Footer />
