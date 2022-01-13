@@ -15,11 +15,11 @@
     grid-template-columns: repeat(2, 1fr);
     & > div {
       text-align: center;
-      padding: 3rem;
+      padding: 1rem;
 
       img {
         padding: 1rem;
-        width: 80%;
+        width: 300px;
       }
       input {
         width: 100%;
@@ -51,6 +51,30 @@
       button:hover {
         background-color: var(--navyBlue);
         border: none;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1000px) {
+  .loginFormSection {
+    form {
+      width: 60%;
+      input {
+        width: 99%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1000px) {
+  .userInfoMainContainer {
+    & > div {
+      grid-template-columns: 1fr;
+      & > div {
+        padding: 0;
+        img {
+          padding: 1rem;
+          width: 100%;
+        }
       }
     }
   }
