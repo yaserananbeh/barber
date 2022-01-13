@@ -22,5 +22,29 @@
     "barberExp": 16,
     "barberDes": "For the past 16 years, he’s honed his barbering skills and is currently a qualified barbering assessor and barbershop owner",
     "barberPrice": 50
+  },
+  {
+    "id": 4,
+    "barberImg": "https://miro.medium.com/max/625/1*NI7zGGZD4Ki2LhSwM0xohA.jpeg",
+    "barberName": "Alex bar",
+    "barberExp": 16,
+    "barberDes": "For the past 16 years, he’s honed his barbering skills and is currently a qualified barbering assessor and barbershop owner",
+    "barberPrice": 50
+  },
+  {
+    "id": 5,
+    "barberImg": "https://miro.medium.com/max/625/1*UgOa0hXsJ2ucYkzwOuYg2w.jpeg",
+    "barberName": "Jon macron",
+    "barberExp": 16,
+    "barberDes": "For the past 16 years, he’s honed his barbering skills and is currently a qualified barbering assessor and barbershop owner",
+    "barberPrice": 50
+  },
+  {
+    "id": 6,
+    "barberImg": "https://miro.medium.com/max/1000/1*keHC90qDfxJFlvCQBzxzhw.jpeg",
+    "barberName": "Haroon",
+    "barberExp": 16,
+    "barberDes": "For the past 16 years, he’s honed his barbering skills and is currently a qualified barbering assessor and barbershop owner",
+    "barberPrice": 50
   }
 ]
