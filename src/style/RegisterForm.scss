@@ -10,8 +10,8 @@
     border-radius: 1rem;
     margin: 2rem auto;
     padding: 2rem;
-    h2{
-        font-weight: 800;
+    h2 {
+      font-weight: 800;
     }
     p {
       margin: 0.5rem auto;
@@ -45,6 +45,37 @@
     button:hover {
       background-color: var(--navyBlue);
       border: none;
+    }
+  }
+}
+@media screen and (max-width: 1000px) {
+  .registerFormSection {
+    form {
+      width: 60%;
+      input {
+        width: 99%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .registerFormSection {
+    form {
+      width: 80%;
+      input {
+        width: 99%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .registerFormSection {
+    form {
+      width: 95%;
+      padding: 0.5rem;
+      input {
+        width: 99%;
+      }
     }
   }
 }
