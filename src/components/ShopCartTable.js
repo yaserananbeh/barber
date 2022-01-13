@@ -1,14 +1,16 @@
 import React, { useState, useEffect, useContext } from "react";
 import "../style/ShopCartTable.scss";
-import { CartCounterContext } from "../App";
+import { CartCounterContext, IsAuthContext } from "../App";
 import { Link } from "react-router-dom";
 
 function ShopCartTable() {
   const cartCounterSetter = useContext(CartCounterContext);
+  const { isAuth } = useContext(IsAuthContext);
   const [quantityChange, setQuantityChange] = useState(0);
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [couponInput, setCouponInput] = useState("");
+
   useEffect(() => {
     setStorageData();
     calculateTotal();
@@ -66,16 +68,19 @@ function ShopCartTable() {
     if (couponInput === "co123") {
       if (calculateTotal() === totalPrice) {
         setTotalPrice(totalPrice - totalPrice * 0.15);
+        localStorage.setItem("withDiscount", JSON.stringify(true));
         document.querySelector(".couponResponse").innerHTML =
           "Added Successfully";
         e.target.reset();
       } else {
         setTotalPrice(totalPrice);
+        localStorage.removeItem("withDiscount");
         document.querySelector(".couponResponse").innerHTML =
           "Not valid coupon ";
       }
     } else {
       setTotalPrice(calculateTotal());
+      localStorage.removeItem("withDiscount");
       document.querySelector(".couponResponse").innerHTML = "Not valid coupon ";
     }
   };
@@ -147,9 +152,15 @@ function ShopCartTable() {
             <Link to="/shop">
               <button>Add Items</button>
             </Link>
-            <Link to="/checkout">
-              <button>Checkout</button>
-            </Link>
+            {isAuth.email.length > 5 ? (
+              <Link to="/checkout">
+                <button>Checkout</button>
+              </Link>
+            ) : (
+              <Link to="/login">
+                <button>Checkout</button>
+              </Link>
+            )}
           </div>
         </div>
       ) : (

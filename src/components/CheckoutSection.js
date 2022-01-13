@@ -1,9 +1,10 @@
 import React from "react";
 import "../style/CheckoutSection.scss";
+import CheckoutCartItems from "./CheckoutCartItems";
 function CheckoutSection() {
   return (
     <div className="checkoutSectionMainContainer">
-      <img src="./assets/images/shopHeroImage.jpg" alt="" />
+      <CheckoutCartItems />
     </div>
   );
 }
