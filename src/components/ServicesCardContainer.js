@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import barberApiData from "./BarbersApi.json";
-import swal from "sweetalert";
 import BarberCardContainer from "./BarberCardContainer";
+import "../style/ServicesCardContainer.scss";
 
 function ServicesCardContainer() {
   return (
-    <div style={{ color: "white" }}>
+    <div className="servicesCardContainer">
       {barberApiData.map((data, index) => {
         return (
           <div key={index}>

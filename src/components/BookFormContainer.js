@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import swal from "sweetalert";
+import "../style/BookFormContainer.scss";
 
 function BookFormContainer({ setBookFormToggle, data }) {
   const [error, setError] = useState(false);
@@ -48,6 +49,7 @@ function BookFormContainer({ setBookFormToggle, data }) {
             data.barberName + "dates",
             JSON.stringify(tempArr)
           );
+          setBookFormToggle(false);
           swal(
             "You have booked successfully",
             "Thank you for using our services",
@@ -75,6 +77,7 @@ function BookFormContainer({ setBookFormToggle, data }) {
             },
           ])
         );
+        setBookFormToggle(false);
         swal(
           "You have booked successfully",
           "Thank you for using our services",
@@ -101,6 +104,7 @@ function BookFormContainer({ setBookFormToggle, data }) {
           },
         ])
       );
+      setBookFormToggle(false);
       swal(
         "You have booked successfully",
         "Thank you for using our services",
@@ -120,11 +124,11 @@ function BookFormContainer({ setBookFormToggle, data }) {
     ("0" + today.getDate()).slice(-2);
 
   return (
-    <div>
+    <div className="bookFormContainer">
       <form onSubmit={handleBookFormSubmit}>
-        <label htmlFor="date">date</label>
+        <label htmlFor="date">Pick A date</label>
         <input type="date" min={date} name="date" required />
-        <label htmlFor="time">Hour</label>
+        <label htmlFor="time">Pick An hour</label>
         <input
           type="number"
           step="1"
@@ -133,7 +137,7 @@ function BookFormContainer({ setBookFormToggle, data }) {
           name="time"
           required
         />{" "}
-        <p>o'Clock</p>
+        <p>1-11</p>
         {error && <p>error</p>}
         <button>Book</button>
       </form>
