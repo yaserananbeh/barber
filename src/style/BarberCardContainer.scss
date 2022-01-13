@@ -5,6 +5,7 @@
   grid-template-areas: "imageContainer imageContainer contentContainer contentContainer contentContainer ";
   width: 90%;
   margin: 2rem auto;
+  gap: 1rem;
   padding: 1rem;
   border: 3px solid var(--teal);
   color: var(--white);
@@ -14,7 +15,7 @@
     margin: 0 auto;
     text-align: center;
     & > img {
-      width: 80%;
+      width: 300px;
     }
   }
   & > .contentContainer {
@@ -35,6 +36,29 @@
     button:hover {
       background-color: var(--navyBlue);
       border: none;
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  .barberCardContainer {
+    width: 100%;
+    padding: 1rem 0;
+    grid-template-areas: "imageContainer contentContainer ";
+    text-align: center;
+    .contentContainer {
+      margin: 1rem;
+      text-align: left;
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  .barberCardContainer {
+    width: 100%;
+    padding: 1rem 0;
+    grid-template-areas: "imageContainer " "contentContainer ";
+    text-align: center;
+    .contentContainer {
+      margin: 1rem;
     }
   }
 }

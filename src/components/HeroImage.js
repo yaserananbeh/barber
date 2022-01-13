@@ -8,7 +8,7 @@ function HeroImage() {
       <div className="actionArea">
         <h2>Book Your Barber</h2>
         <p>Book and pay for haircuts with just a few clicks.</p>
-        <Link to="/">
+        <Link to="/services">
           <button>Explore More</button>
         </Link>
       </div>

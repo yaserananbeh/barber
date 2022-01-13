@@ -1,11 +1,18 @@
-.bookFormContainer{
-    input{
-        display: block;
-        width: 80%;
-        border-radius: 0.3rem;
+.bookFormContainer {
+  input {
+    display: block;
+    width: 80%;
+    border-radius: 0.3rem;
+  }
+  label {
+    text-transform: uppercase;
+    margin: 0.5rem auto 0.2rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .bookFormContainer {
+    input {
+      width: 100%;
     }
-    label{
-        text-transform: uppercase;
-        margin: 0.5rem auto 0.2rem;
-    }
+  }
 }
