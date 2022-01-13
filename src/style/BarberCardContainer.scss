@@ -1,6 +1,8 @@
 .barberCardContainer {
+  // display: grid;
+  // grid-template-columns: 2fr 4fr;
   display: grid;
-  grid-template-columns: 2fr 4fr;
+  grid-template-areas: "imageContainer imageContainer contentContainer contentContainer contentContainer ";
   width: 90%;
   margin: 2rem auto;
   padding: 1rem;
@@ -8,6 +10,7 @@
   color: var(--white);
   border-radius: 0.3rem;
   & > .imageContainer {
+    grid-area: imageContainer;
     margin: 0 auto;
     text-align: center;
     & > img {
@@ -15,9 +18,9 @@
     }
   }
   & > .contentContainer {
+    grid-area: contentContainer;
     button {
       margin: 0 0.5rem;
-
       background-color: var(--black);
       padding: 2px 15px;
       border-radius: 5px;
